@@ -49,10 +49,11 @@ class testApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-		void showTheWordAsBaudot(void);
+		void showTheWordAsBaudot(string);
 		string GetBaudCode(char);
 		void Print(void);
 		void SaveImage(void);
+		void ConvertTextFile(string);
 
 		// what you enter (use backspace and type)
 		string myText;
@@ -67,6 +68,6 @@ class testApp : public ofBaseApp{
 
 		int x, y;
 
-
+		ofFbo fbo;
 
 };

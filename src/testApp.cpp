@@ -4,14 +4,17 @@
 //--------------------------------------------------------------
 void testApp::setup(){
 
-myText="abca";
-text2print = myText;
+	ofSetFrameRate(60);   
+	fbo.allocate( 512, 512, GL_RGBA,0);
 
-// the data for writing one letter in Baudot
-currentBaudotCode = "";
-// some positioning stuff
-fx = 25; // your size to the right
-fy = 25; // your size between circles of one letter (to y)
+	myText="abca";
+	text2print = myText;
+
+	// the data for writing one letter in Baudot
+	currentBaudotCode = "";
+	// some positioning stuff
+	fx = 25; // your size to the right
+	fy = 25; // your size between circles of one letter (to y)
 
 }
 
@@ -22,30 +25,29 @@ void testApp::update(){
 
 //--------------------------------------------------------------
 void testApp::draw(){
+
 	// delete screen
 	ofBackground (255);
 	// show current word
 	ofSetColor(0);
 	ofFill();
-	showTheWordAsBaudot();
+	showTheWordAsBaudot(myText);
+
 }
 
-void testApp::showTheWordAsBaudot(void)
+void testApp::showTheWordAsBaudot(string inputText)
 {
 // here Baudot circles are made
 // go through the word you entered letter by letter
 x=0;
 y=0;
-for (int i = 0 ; i < myText.length() ; i++) {
+for (int i = 0 ; i < inputText.length() ; i++) {
 	// get the Baudot Code for the letter
-	currentBaudotCode = (string) GetBaudCode((char)myText[i]);
+	currentBaudotCode = (string) GetBaudCode((char)inputText[i]);
 	// if not found
 	if (currentBaudotCode == "")
 	{
-		// not found: show a ? sign for the whole letter
-		//println(myText.charAt(i)+ " not found in baudotAlphabet.");
-		//fill(0);
-		//text ("?", 20+i*fx, y+20+3*fy );
+		// not found
 	}
 	else
 	{
@@ -89,9 +91,7 @@ for (int i = 0 ; i < myText.length() ; i++) {
 			else
 			{
 				// error: wrong character
-				// show one ? instead of a circle
-				//text ("?", x+20+i*fx, y+20+j*fy );
-				//println ("error in "+ currentBaudotCode	+ " for " + currentBaudotCode.charAt(j)	+ " with " + myText.charAt(i));
+				
 			}
 		}//for
 	}
@@ -105,10 +105,68 @@ string testApp::GetBaudCode(char ascii_code)
 	return baudotLookup[ascii_code-97];
 }
 
+void testApp::ConvertTextFile(string fileName)
+{
+	// this is our buffer to stroe the text data
+    ofBuffer buffer = ofBufferFromFile("test.txt");
+    
+	if(buffer.size()) { 
+        
+		/* declare and start the FBO*/
+		
+		
+		fbo.begin();
+		glPixelStorei(GL_PACK_ALIGNMENT, 1); 
+
+
+        // we now keep grabbing the next line
+        // until we reach the end of the file
+        while(buffer.isLastLine() == false) {
+            
+            // move on to the next line
+            string line = buffer.getNextLine();
+            
+            // make sure its not a empty line
+            if(line.empty() == false) {
+
+
+				// delete screen
+				ofBackground (255);
+				// show current word
+				ofSetColor(0);
+				ofFill();
+				showTheWordAsBaudot(line);
+			}
+            
+            // print out the line
+            cout << line << endl;
+            
+        }
+
+		/* save the fbo to file */
+		ofImage imgSaver;
+		imgSaver.allocate(fbo.getWidth(), fbo.getHeight(), OF_IMAGE_COLOR);
+		imgSaver.setUseTexture(false);
+		glPixelStorei(GL_PACK_ALIGNMENT, 1);  
+		unsigned char *pixels;
+		pixels = new unsigned char[((int)fbo.getWidth())*((int)fbo.getHeight())*3];
+		glReadPixels(0, 0, fbo.getWidth(), fbo.getHeight(), GL_RGB, GL_UNSIGNED_BYTE, pixels);
+		imgSaver.setFromPixels(pixels, fbo.getWidth(), fbo.getHeight(), OF_IMAGE_COLOR);
+		imgSaver.mirror(0,0);
+		imgSaver.saveImage("data/caps/test.png");
+		fbo.end();
+		delete pixels;
+        
+    } 
+
+
+
+}
 
 void testApp::SaveImage(void)
 {
 	ofSaveScreen("test.png");
+
 }
 
 void testApp::Print(void)
@@ -123,8 +181,16 @@ void testApp::Print(void)
 void testApp::keyPressed(int key){
 	// add letter to the word
 	myText += key;
-
+	if (key == 'p')
+	{
+		SaveImage();
+	}
+	if (key == 'f')
+	{
+		ConvertTextFile("");
+	}
 }
+
 
 //--------------------------------------------------------------
 void testApp::keyReleased(int key){
