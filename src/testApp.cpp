@@ -15,12 +15,86 @@ void testApp::setup(){
 	// some positioning stuff
 	fx = 25; // your size to the right
 	fy = 25; // your size between circles of one letter (to y)
+	MorseCodeSetup();
 
+	//TwitterSetup();
+
+}
+
+void testApp::MorseCodeSetup(void)
+{
+	currentIndex = 0;
+
+	//Path to the comma delimited file
+	string filePath = "morse.csv";
+	
+	//Use a ofTrueTypeFont for scalable text
+	font.loadFont("frabk.ttf", 122);
+	
+	//Load file placed in bin/data
+	ofFile file(filePath);
+	
+	if(!file.exists()){
+		ofLogError("The file " + filePath + " is missing");
+	}
+	
+	ofBuffer buffer(file);
+	
+	//Read file line by line
+	while (!buffer.isLastLine()) {
+		string line = buffer.getNextLine();
+		
+		//Split line into strings
+		vector<string> words = ofSplitString(line, ",");
+		
+		//Store strings into a custom container
+		MorseCodeSymbol symbol;
+		symbol.character = words[0];
+		symbol.code = words[1];
+		
+		//Save MorseCodeSymbols for later
+		morseCodeSymbols.push_back(symbol);
+		
+		//Debug output
+		ofLogVerbose("symbol.character: " + symbol.character);
+		ofLogVerbose("symbol.code: " + symbol.code);
+	}
+	
+	//Load our Morse code sounds
+	player.setup(); 
+}
+
+void testApp::TwitterSetup(void)
+{
+	twitter.connect(
+		"YOUR_USERNAME"
+		,"YOUR_PASSWORD"
+		,"stream.twitter.com"
+		,"/1/statuses/filter.json?track=YOUR_FILTER_KEYWORD"
+	);
+}
+
+string testApp::TwitterCheckForTweet(void)
+{
+	string tweetText = "";
+	
+	while(twitter.hasNewTweets()) {
+		ofxTweet t = twitter.getNextTweet();
+		cout << "text:" << t.getText() << endl;
+		tweetText = t.getText();
+		cout << "avatar:" << t.getAvatar() << endl;
+		cout << "---" << endl;
+	}
+
+ return tweetText;
 }
 
 //--------------------------------------------------------------
 void testApp::update(){
+	//Update our MorseCodePlayer with the app
+	player.update();
 
+	//TwitterCheckForTweet();
 }
 
 //--------------------------------------------------------------
@@ -189,9 +263,25 @@ void testApp::keyPressed(int key){
 	{
 		ConvertTextFile("");
 	}
+	MorseCodeKeyPressed(key);
+
 }
 
-
+void testApp::MorseCodeKeyPressed(int key)
+{
+	//Create a comparable string from an int
+	string myKey;
+	myKey = (char) key;
+	myKey = ofToUpper(myKey);
+	
+	for (int i=0; i<morseCodeSymbols.size(); i++) {
+		if (morseCodeSymbols[i].character == myKey){
+			currentSymbol = morseCodeSymbols[i];
+			player.playCode(currentSymbol.code);
+		}
+		
+	} 
+}
 //--------------------------------------------------------------
 void testApp::keyReleased(int key){
 

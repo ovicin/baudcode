@@ -1,6 +1,8 @@
 #pragma once
 
 #include "ofMain.h"
+#include "MorseCodePlayer.h"
+#include "ofxTwitter.h"
 
 const string baudotLookup[] = {
 	/*"a"*/  "aabccc"	
@@ -54,6 +56,10 @@ class testApp : public ofBaseApp{
 		void Print(void);
 		void SaveImage(void);
 		void ConvertTextFile(string);
+		void MorseCodeSetup(void);
+		void MorseCodeKeyPressed(int);
+		void TwitterSetup(void);
+		string TwitterCheckForTweet(void);
 
 		// what you enter (use backspace and type)
 		string myText;
@@ -69,5 +75,17 @@ class testApp : public ofBaseApp{
 		int x, y;
 
 		ofFbo fbo;
+
+
+		vector<MorseCodeSymbol> morseCodeSymbols;
+		int currentIndex;
+		
+		MorseCodePlayer player;
+		MorseCodeSymbol currentSymbol;
+	
+		ofTrueTypeFont font;
+
+
+		ofxTwitter twitter;
 
 };

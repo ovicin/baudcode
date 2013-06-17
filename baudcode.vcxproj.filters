@@ -7,14 +7,128 @@
     <ClCompile Include="src\main.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxHttpUtils\src\ofxHttpUtils.cpp">
+      <Filter>addons\ofxHttpUtils\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxTwitterStream\src\lib\jansson\dump.c">
+      <Filter>addons\ofxTwitterStream\src\lib\jansson</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxTwitterStream\src\lib\jansson\error.c">
+      <Filter>addons\ofxTwitterStream\src\lib\jansson</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxTwitterStream\src\lib\jansson\hashtable.c">
+      <Filter>addons\ofxTwitterStream\src\lib\jansson</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxTwitterStream\src\lib\jansson\load.c">
+      <Filter>addons\ofxTwitterStream\src\lib\jansson</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxTwitterStream\src\lib\jansson\memory.c">
+      <Filter>addons\ofxTwitterStream\src\lib\jansson</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxTwitterStream\src\lib\jansson\pack_unpack.c">
+      <Filter>addons\ofxTwitterStream\src\lib\jansson</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxTwitterStream\src\lib\jansson\strbuffer.c">
+      <Filter>addons\ofxTwitterStream\src\lib\jansson</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxTwitterStream\src\lib\jansson\strconv.c">
+      <Filter>addons\ofxTwitterStream\src\lib\jansson</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxTwitterStream\src\lib\jansson\utf.c">
+      <Filter>addons\ofxTwitterStream\src\lib\jansson</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxTwitterStream\src\lib\jansson\value.c">
+      <Filter>addons\ofxTwitterStream\src\lib\jansson</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxTwitterStream\src\lib\stringencoders\modp_b64.cpp">
+      <Filter>addons\ofxTwitterStream\src\lib\stringencoders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxTwitterStream\src\ofxTweet.cpp">
+      <Filter>addons\ofxTwitterStream\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxTwitterStream\src\ofxTwitter.cpp">
+      <Filter>addons\ofxTwitterStream\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxTwitterStream\src\ofxTwitterConnector.cpp">
+      <Filter>addons\ofxTwitterStream\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MorseCodePlayer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
       <UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="addons">
+      <UniqueIdentifier>{71834f65-f3a9-211e-73b8-dc8563776aec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxHttpUtils">
+      <UniqueIdentifier>{9026f5ec-35a9-f15a-2462-123fb7979c76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxHttpUtils\src">
+      <UniqueIdentifier>{ca7772c3-8252-314e-ef20-ba6b0d4f91e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxTwitterStream">
+      <UniqueIdentifier>{c284c538-d113-e5f3-59a6-eadeb8a7a4e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxTwitterStream\src">
+      <UniqueIdentifier>{c2eaef20-3a3e-f505-7d4b-d95ecc434c27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxTwitterStream\src\lib">
+      <UniqueIdentifier>{95bd6104-03d3-3220-6994-48b800d86bee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxTwitterStream\src\lib\jansson">
+      <UniqueIdentifier>{01e16bb7-8713-e881-94ac-95e3db5f0541}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxTwitterStream\src\lib\stringencoders">
+      <UniqueIdentifier>{cf645c95-9312-7645-eda3-001a1c720edf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\testApp.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxHttpUtils\src\ofxHttpTypes.h">
+      <Filter>addons\ofxHttpUtils\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxHttpUtils\src\ofxHttpUtils.h">
+      <Filter>addons\ofxHttpUtils\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTwitterStream\src\lib\jansson\hashtable.h">
+      <Filter>addons\ofxTwitterStream\src\lib\jansson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTwitterStream\src\lib\jansson\jansson.h">
+      <Filter>addons\ofxTwitterStream\src\lib\jansson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTwitterStream\src\lib\jansson\jansson_config.h">
+      <Filter>addons\ofxTwitterStream\src\lib\jansson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTwitterStream\src\lib\jansson\jansson_private.h">
+      <Filter>addons\ofxTwitterStream\src\lib\jansson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTwitterStream\src\lib\jansson\strbuffer.h">
+      <Filter>addons\ofxTwitterStream\src\lib\jansson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTwitterStream\src\lib\jansson\utf.h">
+      <Filter>addons\ofxTwitterStream\src\lib\jansson</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTwitterStream\src\lib\stringencoders\modp_b64.h">
+      <Filter>addons\ofxTwitterStream\src\lib\stringencoders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTwitterStream\src\lib\stringencoders\modp_b64_data.h">
+      <Filter>addons\ofxTwitterStream\src\lib\stringencoders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTwitterStream\src\ofxTweet.h">
+      <Filter>addons\ofxTwitterStream\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTwitterStream\src\ofxTwitter.h">
+      <Filter>addons\ofxTwitterStream\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTwitterStream\src\ofxTwitterConnector.h">
+      <Filter>addons\ofxTwitterStream\src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MorseCodePlayer.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
