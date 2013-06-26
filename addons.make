@@ -1,2 +1,1 @@
-ofxHttpUtils
-ofxTwitterStream
+ofxOsc

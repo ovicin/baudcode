@@ -2,7 +2,7 @@
 
 #include "ofMain.h"
 #include "MorseCodePlayer.h"
-#include "ofxTwitter.h"
+#include "ofxOsc.h"
 
 const string baudotLookup[] = {
 	/*"a"*/  "aabccc"	
@@ -85,7 +85,7 @@ class testApp : public ofBaseApp{
 	
 		ofTrueTypeFont font;
 
-
-		ofxTwitter twitter;
+		ofxOscReceiver OSCReceiver;
+		
 
 };

@@ -57,7 +57,7 @@
       <PrecompiledHeader />
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxHttpUtils\libs;..\..\..\addons\ofxHttpUtils\src;..\..\..\addons\ofxTwitterStream\libs;..\..\..\addons\ofxTwitterStream\src;..\..\..\addons\ofxTwitterStream\src\lib;..\..\..\addons\ofxTwitterStream\src\lib\jansson;..\..\..\addons\ofxTwitterStream\src\lib\stringencoders</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxOsc\libs;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxOsc\libs\oscpack;..\..\..\addons\ofxOsc\libs\oscpack\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\addons\ofxOsc\libs\oscpack\src\osc</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
@@ -80,7 +80,7 @@
       <PrecompiledHeader />
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat />
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxHttpUtils\libs;..\..\..\addons\ofxHttpUtils\src;..\..\..\addons\ofxTwitterStream\libs;..\..\..\addons\ofxTwitterStream\src;..\..\..\addons\ofxTwitterStream\src\lib;..\..\..\addons\ofxTwitterStream\src\lib\jansson;..\..\..\addons\ofxTwitterStream\src\lib\stringencoders</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxOsc\libs;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxOsc\libs\oscpack;..\..\..\addons\ofxOsc\libs\oscpack\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\addons\ofxOsc\libs\oscpack\src\osc</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
@@ -101,38 +101,42 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\MorseCodePlayer.cpp" />
     <ClCompile Include="src\testApp.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxHttpUtils\src\ofxHttpUtils.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxTwitterStream\src\lib\jansson\dump.c" />
-    <ClCompile Include="..\..\..\addons\ofxTwitterStream\src\lib\jansson\error.c" />
-    <ClCompile Include="..\..\..\addons\ofxTwitterStream\src\lib\jansson\hashtable.c" />
-    <ClCompile Include="..\..\..\addons\ofxTwitterStream\src\lib\jansson\load.c" />
-    <ClCompile Include="..\..\..\addons\ofxTwitterStream\src\lib\jansson\memory.c" />
-    <ClCompile Include="..\..\..\addons\ofxTwitterStream\src\lib\jansson\pack_unpack.c" />
-    <ClCompile Include="..\..\..\addons\ofxTwitterStream\src\lib\jansson\strbuffer.c" />
-    <ClCompile Include="..\..\..\addons\ofxTwitterStream\src\lib\jansson\strconv.c" />
-    <ClCompile Include="..\..\..\addons\ofxTwitterStream\src\lib\jansson\utf.c" />
-    <ClCompile Include="..\..\..\addons\ofxTwitterStream\src\lib\jansson\value.c" />
-    <ClCompile Include="..\..\..\addons\ofxTwitterStream\src\lib\stringencoders\modp_b64.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxTwitterStream\src\ofxTweet.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxTwitterStream\src\ofxTwitter.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxTwitterStream\src\ofxTwitterConnector.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscBundle.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscMessage.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscReceiver.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscSender.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix\NetworkingUtils.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix\UdpSocket.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32\NetworkingUtilsWin.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32\UdpSocketWin.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\MorseCodePlayer.h" />
     <ClInclude Include="src\testApp.h" />
-    <ClInclude Include="..\..\..\addons\ofxHttpUtils\src\ofxHttpTypes.h" />
-    <ClInclude Include="..\..\..\addons\ofxHttpUtils\src\ofxHttpUtils.h" />
-    <ClInclude Include="..\..\..\addons\ofxTwitterStream\src\lib\jansson\hashtable.h" />
-    <ClInclude Include="..\..\..\addons\ofxTwitterStream\src\lib\jansson\jansson.h" />
-    <ClInclude Include="..\..\..\addons\ofxTwitterStream\src\lib\jansson\jansson_config.h" />
-    <ClInclude Include="..\..\..\addons\ofxTwitterStream\src\lib\jansson\jansson_private.h" />
-    <ClInclude Include="..\..\..\addons\ofxTwitterStream\src\lib\jansson\strbuffer.h" />
-    <ClInclude Include="..\..\..\addons\ofxTwitterStream\src\lib\jansson\utf.h" />
-    <ClInclude Include="..\..\..\addons\ofxTwitterStream\src\lib\stringencoders\modp_b64.h" />
-    <ClInclude Include="..\..\..\addons\ofxTwitterStream\src\lib\stringencoders\modp_b64_data.h" />
-    <ClInclude Include="..\..\..\addons\ofxTwitterStream\src\ofxTweet.h" />
-    <ClInclude Include="..\..\..\addons\ofxTwitterStream\src\ofxTwitter.h" />
-    <ClInclude Include="..\..\..\addons\ofxTwitterStream\src\ofxTwitterConnector.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOsc.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscArg.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscBundle.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscMessage.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscReceiver.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscSender.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\NetworkingUtils.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\PacketListener.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\TimerListener.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\UdpSocket.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\MessageMappingOscPacketListener.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscException.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscHostEndianness.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPacketListener.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\libs\openFrameworksCompiled\project\vs2010\openframeworksLib.vcxproj">

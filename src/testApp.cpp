@@ -17,7 +17,7 @@ void testApp::setup(){
 	fy = 25; // your size between circles of one letter (to y)
 	MorseCodeSetup();
 
-	//TwitterSetup();
+	TwitterSetup();
 
 }
 
@@ -66,25 +66,23 @@ void testApp::MorseCodeSetup(void)
 
 void testApp::TwitterSetup(void)
 {
-	twitter.connect(
-		"YOUR_USERNAME"
-		,"YOUR_PASSWORD"
-		,"stream.twitter.com"
-		,"/1/statuses/filter.json?track=YOUR_FILTER_KEYWORD"
-	);
+	static const string HOST = "localhost";
+    static const int PORT = 11011;
+	OSCReceiver.setup(11011);
 }
 
 string testApp::TwitterCheckForTweet(void)
 {
-	string tweetText = "";
-	
-	while(twitter.hasNewTweets()) {
-		ofxTweet t = twitter.getNextTweet();
-		cout << "text:" << t.getText() << endl;
-		tweetText = t.getText();
-		cout << "avatar:" << t.getAvatar() << endl;
-		cout << "---" << endl;
-	}
+	string tweetText;
+	// check for waiting messages
+	while(OSCReceiver.hasWaitingMessages()){
+		// get the next message
+		ofxOscMessage m;
+		OSCReceiver.getNextMessage(&m);
+		cout<<"NoArguments"<<m.getNumArgs();
+		tweetText = m.getArgAsString(0);
+		cout << tweetText;
+	} 
 
  return tweetText;
 }
@@ -94,7 +92,8 @@ void testApp::update(){
 	//Update our MorseCodePlayer with the app
 	player.update();
 
-	//TwitterCheckForTweet();
+	
+	TwitterCheckForTweet();
 }
 
 //--------------------------------------------------------------
